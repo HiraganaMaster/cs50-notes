@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <cs50.h>
+
+double power(void);
+
+int main(void)
+{
+    printf("Output: %.0f\n", power());
+}
+
+double power(void)
+{
+    double i;
+    double j;
+    do
+    {
+        i = get_double("Base: ");
+        j = get_double("Exponent: ");
+    }
+    while(i < 1);
+    double l = i;
+    for (int k = 0; k < j; k++)
+    {
+        i = l * i;
+    }
+    return i;
+}
