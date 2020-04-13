@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+void get_dollars(float num);
+
+int main(void)
+{
+    float dollars = 0;
+    get_dollars(dollars);
+/*
+    int cents = dollars * 100;
+    // check cents is correct: printf("Cents: %i\n", cents);
+
+    int quarters = cents / 25;
+    int cents1 = cents % 25;
+    // check quarters is correct: printf("quarters: %i\n", quarters);
+    // check cents1 is correct: printf("cents1: %i\n", cents1);
+
+    int dimes = cents1 / 10;
+    int cents2 = cents1 % 10;
+    // check dimes is correct: printf("dimes: %i\n", dimes);
+    // check cents2 is correct: printf("cents2: %i\n", cents2);
+
+    int nickels = cents2 / 5;
+    int cents3 = cents2 % 5;
+    // check nickels is correct: printf("nickels: %i\n", nickels);
+    // check cents3 is correct: printf("cents3: %i\n", cents3);
+
+    int coins = quarters + dimes + nickels + cents3;
+
+    printf("%i\n", coins);
+*/
+}
+
+void get_dollars(float num)
+{
+    do
+    {
+        num = get_float("Change owed: ");
+    }
+    while (num <= 0);
+}
