@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <cs50.h>
 
+// Declare main function
+// Get user parameterised user input
+
 int main(void)
 {
     int height;
@@ -10,20 +13,23 @@ int main(void)
     }
     while (height < 1 || height > 8);
 
-    for (int a = 0; a < height; a++)
+    // Iterate from line 0 through to line (height)
+
+    for (int a = 1; a <= height; a++)
     {
-        for (int spaces = height - a - 1; spaces > 0; spaces--)
+        // For each iteration, print number of spaces according to height and line number
+        for (int spaces = height - a; spaces > a - 1; spaces--)
         {
             printf(" ");
         }
-        for (int hashes = 0 ; hashes < a + 1; hashes++)
+        for (int hashes = 1 ; hashes < a + 1; hashes++)
         {
             printf("#");
         }
 
         printf("  ");
 
-        for (int hashes = 0 ; hashes < a + 1; hashes++)
+        for (int hashes = 1 ; hashes < a + 1; hashes++)
         {
             printf("#");
         }
