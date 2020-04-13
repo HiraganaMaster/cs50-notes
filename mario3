@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <cs50.h>
 
+// Declare print functions for spaces and hashes
+
 void print_spaces(int num);
 void print_hashes(int num);
+
+// Declare main function (that will eventually call print functions)
+// Get user parameterised user input
 
 int main(void)
 {
@@ -11,10 +16,12 @@ int main(void)
     {
         height = get_int("Height: ");
     }
-    while (height < 0 || height > 8);
+    while (height < 1 || height > 8);
 
     int spaces = height - 1;
     int hashes = 1;
+
+    // Iterate from line 0 through to line (height)
 
     for (int i = 0; i < height; i++)
     {
@@ -28,6 +35,8 @@ int main(void)
     }
 }
 
+// Declare function to print spaces, iterating through to a variable in main function
+
 void print_spaces(int num)
 {
     for (int a = 0; a < num; a++)
@@ -35,6 +44,8 @@ void print_spaces(int num)
         printf(" ");
     }
 }
+
+// Declare function to print hashes, iterating through to a variable in main function
 
 void print_hashes(int num)
 {
