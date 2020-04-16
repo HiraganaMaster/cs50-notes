@@ -7,7 +7,14 @@ bool input_length_validation(int num);
 
 int main(void)
 {
-    long num = get_card_number();
+    long card_number = get_card_number();
+    bool valid = input_length_validation(card_number)
+    if (valid)
+    {
+
+    }
+    else
+    printf("INVALID\n");
     return 0;
 }
 
@@ -21,6 +28,7 @@ long get_card_number(void)
     }
     while (l < 0);
 }
+
 // function to check validity
 {
     int input;
@@ -38,10 +46,12 @@ long get_card_number(void)
 
     }
     // Amex 15, 34 & 37
-    else if ()
+    else if (input % b == 34 || input % a == 37)
     {
 
     }
+    else
+    return 0;
 }
 
 // function to select digits
