@@ -21,16 +21,36 @@ long get_card_number(void)
     }
     while (l < 0);
 }
+// function to check validity
+{
+    int input;
+    int a = pow(10,14);
+    int b = pow(10,13);
+    int c = pow(10,12);
+    // Mastercard 16, 51 - 55
+    if (input % a > 50 && input % a < 56)
+    {
 
+    }
+    // Visa 16 & 14, 40 - 49
+    else if (input % a >= 40 && input % a < 50 || input % c >= 40 && input % c < 50)
+    {
+
+    }
+    // Amex 15, 34 & 37
+    else if ()
+    {
+
+    }
+}
+
+// function to select digits
 {
     int input;
     int a, b = 0
     while (input % 10 > 0)
     {
         a = input % 10;
-        input /= 10;
-
-
-
+        b = input /= 10;
     }
 }
