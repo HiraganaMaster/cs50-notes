@@ -47,7 +47,7 @@ bool input_length_validation(long input)
         return 1;
     }
     // Amex 15, 34 & 37
-    else if (input / b == 34 || input / a == 37)
+    else if (input / b == 34 || input / b == 37)
     {
         return 1;
     }
