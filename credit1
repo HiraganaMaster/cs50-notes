@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+long get_card_number(void);
+bool input_length_validation(int num);
+
+int main(void)
+{
+    long num = get_card_number();
+    return 0;
+}
+
+long get_card_number(void)
+{
+    long l;
+    do
+    {
+        l = get_long("Number: ");
+        return l;
+    }
+    while (l < 0);
+}
+
+{
+    int input;
+    int a, b = 0
+    while (input % 10 > 0)
+    {
+        a = input % 10;
+        input /= 10;
+
+
+
+    }
+}
