@@ -2,8 +2,12 @@
 #include <cs50.h>
 #include <math.h>
 
+// 3 functions required for main to call
+// This forces a positive value input from user according to 'get_long' parameters
 long get_card_number(void);
+// This checks the length of the card number input by the user. If it evaluates to false, only INVALID can be shown
 int input_length_validation(long input);
+// This checks the card number for validity against Luhn's MOD 10 algorithm
 bool Luhn_validation(long input);
 
 int main(void)
@@ -11,6 +15,7 @@ int main(void)
     long card_number = get_card_number();
     int length = input_length_validation(card_number);
     bool valid = Luhn_validation(card_number);
+    // use boolean expressions to test validation of both card length & card validity to specify card type
     if (length == 1 && valid)
     {
         printf("MASTERCARD\n");
@@ -43,9 +48,10 @@ long get_card_number(void)
 
 int input_length_validation(long input)
 {
-    long a = pow(10,14);
-    long b = pow(10,13);
-    long c = pow(10,12);
+    // using math.h file we can use pow to return the long type value of the base (10) raised to the exponent (12, 13, & 14)
+    long a = pow(10, 14);
+    long b = pow(10, 13);
+    long c = pow(10, 12);
     // Mastercard 16, 51 - 55
     if (input / a > 50 && input / a < 56)
     {
@@ -72,9 +78,12 @@ bool Luhn_validation(long input)
     long a = 0, b = 0, c = 0, d = 0;
     while (input > 0)
     {
+        // take last digit and save to a
         a += (input % 10);
         input /= 10;
+        // take next digit
         b = (input % 10);
+        // if digit * 2 is > 10, split into two digits and save both to d
         b = b * 2;
         c = b % 10;
         b = b / 10;
