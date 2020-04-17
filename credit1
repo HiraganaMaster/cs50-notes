@@ -3,17 +3,27 @@
 #include <math.h>
 
 long get_card_number(void);
-bool input_length_validation(long input);
+int input_length_validation(long input);
+bool Luhn_validation(long input);
 
 int main(void)
 {
     long card_number = get_card_number();
-    bool valid = input_length_validation(card_number);
-    if (valid)
+    int length = input_length_validation(card_number);
+    bool valid = Luhn_validation(card_number);
+    if (length == 1 && valid)
     {
-        printf("VALID\n");
+        printf("MASTERCARD\n");
     }
-    else
+    else if (length == 2 && valid)
+    {
+        printf("VISA\n");
+    }
+    else if (length == 3 && valid)
+    {
+        printf("AMEX\n");
+    }
+    else 
     {
         printf("INVALID\n");
     }
@@ -31,7 +41,7 @@ long get_card_number(void)
     return l;
 }
 
-bool input_length_validation(long input)
+int input_length_validation(long input)
 {
     long a = pow(10,14);
     long b = pow(10,13);
@@ -44,12 +54,12 @@ bool input_length_validation(long input)
     // Visa 16 & 14, 40 - 49
     else if ((input / a >= 40 && input / a < 50) || (input / c >= 40 && input / c < 50))
     {
-        return 1;
+        return 2;
     }
     // Amex 15, 34 & 37
     else if (input / b == 34 || input / b == 37)
     {
-        return 1;
+        return 3;
     }
     else
     {
@@ -57,15 +67,27 @@ bool input_length_validation(long input)
     }
 }
 
-// function to select digits
-/*
+bool Luhn_validation(long input) 
 {
-    int input;
-    int a, b = 0
-    while (input % 10 > 0)
+    long a = 0, b = 0, c = 0, d = 0;
+    while (input / 10 > 0)
     {
-        a = input % 10;
-        b = input /= 10;
+        a += (input % 10);
+        input /= 10;
+        b += (input % 10);
+        b = b * 2;
+        c = b % 10;
+        b = b / 10;
+        d = a + b + c + d;
     }
+    if (d % 10 == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+
 }
-*/
+
