@@ -70,17 +70,19 @@ int input_length_validation(long input)
 bool Luhn_validation(long input) 
 {
     long a = 0, b = 0, c = 0, d = 0;
-    while (input / 10 > 0)
+    while (input > 0)
     {
         a += (input % 10);
         input /= 10;
-        b += (input % 10);
+        b = (input % 10);
         b = b * 2;
         c = b % 10;
         b = b / 10;
-        d = a + b + c + d;
+        d += b + c;
+        input /= 10;
     }
-    if (d % 10 == 0)
+    int e = a + d;
+    if (e % 10 == 0)
     {
         return 1;
     }
@@ -88,6 +90,4 @@ bool Luhn_validation(long input)
     {
         return 0;
     }
-
 }
-
