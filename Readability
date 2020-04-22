@@ -20,9 +20,9 @@ int main(void)
     printf("%i word(s)\n", count_words(text));
     printf("%i sentence(s)\n", count_sentences(text));
     */
-    float L = (count_letters(text) / count_words(text))*100;
+    float L = (count_letters(text) / count_words(text)) * 100;
     // test L is correct: printf("%.2f\n", L);
-    float S = (count_sentences(text) / count_words(text))*100;
+    float S = (count_sentences(text) / count_words(text)) * 100;
     // test S is correct: printf("%.2f\n", S);
     int index = round(0.0588 * L - 0.296 * S - 15.8);
     // test index is correct: printf("%i\n", index);
@@ -37,7 +37,9 @@ float count_letters(string s)
     {
         // use for loop count (i) for iteration through string
         if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
-        count++;
+        {
+            count++;
+        }
     }
     return count;
 }
@@ -50,7 +52,9 @@ float count_words(string s)
     {
         // use for loop count (i) for iteration through string
         if (s[i] == ' ')
-        count++;
+        {
+            count++;
+        }
     }
     // need to account for lack of ' ' at end of input therefore +1 to ' ' counter
     return count + 1;
@@ -64,7 +68,9 @@ float count_sentences(string s)
     {
         // use for loop count (i) for iteration through string
         if (s[i] == '.' || s[i] == '?' || s[i] == '!')
+        {
             count++;
+        }
     }
     return count;
 }
